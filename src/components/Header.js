@@ -33,8 +33,6 @@ const Header = () => {
 
   const { currency, setCurrency } = CurrencyState();
 
-  console.log(currency);
-
   return (
     <ThemeProvider theme={darkTheme}>
       <AppBar color="transparent" position="static">

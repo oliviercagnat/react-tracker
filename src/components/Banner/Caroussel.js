@@ -16,10 +16,13 @@ const Caroussel = () => {
   const [trending, setTrending] = useState([]);
 
   // We use axios to help us fetching the API data from CoinGecko
-  // It's async function so we use await
+  // It's async function so we use await, get loaded only once when loading the banner (main page)
+  // or currency change (see below)
+  // We directly do destructuring on { data } and pass currency as parameter to TrendingCoins
+  // otherwise would be data.data
+  // No need to lowercase since it's URL
   const fetchTrendingCoins = async () => {
     const { data } = await axios.get(TrendingCoins(currency));
-    console.log(data);
     setTrending(data);
   };
 
@@ -57,10 +60,14 @@ const Caroussel = () => {
     },
   };
 
+  // Items are all the coins we display in the caroussel
   const items = trending.map((coin) => {
+    // If the price_change_percentage is >= 0, there was profit
+    // We will use it to display red or green profit percentage
     let profit = coin?.price_change_percentage_24h >= 0;
 
     return (
+      // Link to the coin page
       <Link className={MUIclasses.carouselItem} to={`/coins/${coin.id}`}>
         <img src={coin?.image} alt={coin.name} height="80" style={{ marginBottom: 10 }} />
         <span>
@@ -77,6 +84,7 @@ const Caroussel = () => {
           </span>
         </span>
         <span style={{ fontSize: 22, fontWeight: 500 }}>
+          {/* We put a comma in the current price every 3 digits and only displays the last 2 digits (rounded) */}
           {symbol} {numberWithCommas(coin?.current_price.toFixed(2))}
         </span>
       </Link>
