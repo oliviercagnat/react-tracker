@@ -138,6 +138,7 @@ const CoinsTable = () => {
           style={{ padding: 20, width: '100%', display: 'flex', justifyContent: 'center' }}
           classes={{ ul: MUIclasses.pagination }}
           count={(handleSearch()?.length / 10).toFixed(0)}
+          // the _ indicates the first parameter is not to be used
           onChange={(_, value) => {
             setPage(value);
             window.scroll(0, 450);
