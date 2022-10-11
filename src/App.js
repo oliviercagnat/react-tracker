@@ -4,6 +4,7 @@ import Header from './components/Header';
 import Homepage from './pages/Homepage';
 import CoinPage from './pages/CoinPage';
 import { makeStyles } from '@material-ui/core/styles';
+import SharePage from './pages/SharePage';
 
 function App() {
   // MUI - 1 - We create the MUI constant
@@ -26,6 +27,7 @@ function App() {
         <Header />
         <Route path="/" component={Homepage} exact />
         <Route path="/coins/:id" component={CoinPage} />
+        <Route path="/shares/:id" component={SharePage} />
       </div>
     </BrowserRouter>
   );

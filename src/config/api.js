@@ -1,3 +1,5 @@
+// CRYPTO
+
 export const CoinList = (currency) =>
   `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency}&order=market_cap_desc&per_page=100&page=1&sparkline=false`;
 
@@ -7,3 +9,7 @@ export const HistoricalChart = (id, days = 365, currency) => `https://api.coinge
 
 export const TrendingCoins = (currency) =>
   `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency}&order=gecko_desc&per_page=10&page=1&sparkline=false&price_change_percentage=24h`;
+
+// NASDAQ
+
+export const NasdaqList = () => 'https://financialmodelingprep.com/api/v3/nasdaq_constituent?apikey=7c125163bb09ff38a6d3709e122ea73a';

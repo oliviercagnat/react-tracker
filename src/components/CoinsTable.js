@@ -21,6 +21,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import { numberWithCommas } from './Banner/Caroussel';
 import { Pagination } from '@material-ui/lab';
 
+// import { NasdaqList } from '../config/api';
+
 const CoinsTable = () => {
   const [coins, setCoins] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -32,6 +34,8 @@ const CoinsTable = () => {
   const fetchCoins = async () => {
     setLoading(true);
     const { data } = await axios.get(CoinList(currency));
+    // const nasdaqCompanies = await axios.get(NasdaqList());
+    // console.log(nasdaqCompanies.data);
     setCoins(data);
     setLoading(false);
   };
@@ -106,7 +110,6 @@ const CoinsTable = () => {
                 {handleSearch()
                   .slice((page - 1) * 10, (page - 1) * 10 + 10)
                   .map((row) => {
-                    console.log();
                     const profit = row.price_change_percentage_24h > 0;
                     return (
                       <TableRow onClick={() => history.push(`/coins/${row.id}`)} className={MUIclasses.row} key={row.name}>
