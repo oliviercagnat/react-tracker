@@ -11,5 +11,5 @@ export const TrendingCoins = (currency) =>
   `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency}&order=gecko_desc&per_page=10&page=1&sparkline=false&price_change_percentage=24h`;
 
 // NASDAQ
-
-export const NasdaqList = () => 'https://financialmodelingprep.com/api/v3/nasdaq_constituent?apikey=7c125163bb09ff38a6d3709e122ea73a';
+const FINANCIAL_MODEL_API_KEY = process.env.REACT_APP_FINANCIAL_MODEL_API_KEY;
+export const NasdaqList = () => `https://financialmodelingprep.com/api/v3/nasdaq_constituent?apikey=${FINANCIAL_MODEL_API_KEY}`;
