@@ -1,6 +1,6 @@
 import React from 'react';
-import Banner from './Banner/Banner';
-import CoinsTable from './CoinsTable';
+import Banner from '../components/Banner/Banner';
+import CoinsTable from '../components/CoinsTable';
 
 const Homepage = () => {
   return (

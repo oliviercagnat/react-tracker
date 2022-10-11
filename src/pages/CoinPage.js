@@ -4,9 +4,9 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { SingleCoin } from '../config/api';
 import { CurrencyState } from '../context/Context';
-import CoinInfo from './CoinInfo';
+import CoinInfo from '../components/CoinInfo';
 import ReactHtmlParser from 'react-html-parser';
-import { numberWithCommas } from './Banner/Caroussel';
+import { numberWithCommas } from '../components/Banner/Caroussel';
 
 const CoinPage = () => {
   // we take the ID from the URL and use it to fetch one single coin
