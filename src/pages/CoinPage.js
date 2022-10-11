@@ -82,7 +82,6 @@ const CoinPage = () => {
 
   if (!coin) return <LinearProgress style={{ backgroundColor: 'gold' }} />;
 
-  console.log(coin);
   return (
     <div className={MUIclasses.container}>
       <div className={MUIclasses.sidebar}>

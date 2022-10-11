@@ -34,8 +34,6 @@ const CoinsTable = () => {
   const fetchCoins = async () => {
     setLoading(true);
     const { data } = await axios.get(CoinList(currency));
-    // const nasdaqCompanies = await axios.get(NasdaqList());
-    // console.log(nasdaqCompanies.data);
     setCoins(data);
     setLoading(false);
   };

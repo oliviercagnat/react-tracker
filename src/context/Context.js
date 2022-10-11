@@ -17,7 +17,6 @@ const Context = ({ children }) => {
   const FetchNasdaqList = async () => {
     const data = await axios.get(NasdaqList());
     setNasdaqCompanies(data.data);
-    console.log(data.data);
   };
 
   // useEffect runs everytime currency changes
