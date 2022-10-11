@@ -3,7 +3,7 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { SingleCoin } from '../config/api';
-import { CurrencyState } from '../context/Context';
+import { GlobalState } from '../context/Context';
 import CoinInfo from '../components/CoinInfo';
 import ReactHtmlParser from 'react-html-parser';
 import { numberWithCommas } from '../components/Banner/Caroussel';
@@ -12,7 +12,7 @@ const CoinPage = () => {
   // we take the ID from the URL and use it to fetch one single coin
   const { id } = useParams();
   const [coin, setCoin] = useState();
-  const { currency, symbol } = CurrencyState();
+  const { currency, symbol } = GlobalState();
 
   const fetchCoin = async () => {
     const { data } = await axios.get(SingleCoin(id));

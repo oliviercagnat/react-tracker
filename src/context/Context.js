@@ -4,7 +4,7 @@ import axios from 'axios';
 import { NasdaqList } from '../config/api';
 
 // We create a
-const CurrencyContext = createContext();
+const GlobalContext = createContext();
 
 const Context = ({ children }) => {
   const [currency, setCurrency] = useState('USD');
@@ -29,12 +29,12 @@ const Context = ({ children }) => {
   }, [currency]);
 
   // We export the values to make them available in all our app
-  return <CurrencyContext.Provider value={{ currency, setCurrency, symbol, nasdaqCompanies, market, setMarket }}>{children}</CurrencyContext.Provider>;
+  return <GlobalContext.Provider value={{ currency, setCurrency, symbol, nasdaqCompanies, market, setMarket }}>{children}</GlobalContext.Provider>;
 };
 
 export default Context;
 
-// We export the CurrencyState to make it available everywhere
-export const CurrencyState = () => {
-  return useContext(CurrencyContext);
+// We export the GlobalState to make it available everywhere
+export const GlobalState = () => {
+  return useContext(GlobalContext);
 };

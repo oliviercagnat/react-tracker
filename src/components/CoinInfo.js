@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { HistoricalChart } from '../config/api';
-import { CurrencyState } from '../context/Context';
+import { GlobalState } from '../context/Context';
 import axios from 'axios';
 import { CircularProgress, createTheme, makeStyles, ThemeProvider } from '@material-ui/core';
 import { Line } from 'react-chartjs-2';
@@ -11,7 +11,7 @@ const CoinInfo = ({ coin }) => {
   const [historicalData, setHistoricalData] = useState();
   const [days, setDays] = useState(1);
 
-  const { currency } = CurrencyState();
+  const { currency } = GlobalState();
   const fetchHistoricalData = async () => {
     const { data } = await axios.get(HistoricalChart(coin.id, days, currency));
     setHistoricalData(data.prices);

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { CurrencyState } from '../context/Context';
+import { GlobalState } from '../context/Context';
 import {
   Container,
   createTheme,
@@ -18,7 +18,7 @@ import { Pagination } from '@material-ui/lab';
 import { useHistory } from 'react-router-dom';
 
 const ShareTable = () => {
-  const { nasdaqCompanies, market } = CurrencyState();
+  const { nasdaqCompanies, market } = GlobalState();
   const [search, setSearch] = useState('');
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(1);

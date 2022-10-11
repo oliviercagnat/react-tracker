@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { CoinList } from '../config/api';
-import { CurrencyState } from '../context/Context';
+import { GlobalState } from '../context/Context';
 import {
   Container,
   createTheme,
@@ -28,7 +28,7 @@ const CoinsTable = () => {
   const [loading, setLoading] = useState(false);
   const [search, setSearch] = useState('');
   const [page, setPage] = useState(1);
-  const { currency, symbol } = CurrencyState();
+  const { currency, symbol } = GlobalState();
   const history = useHistory();
 
   const fetchCoins = async () => {

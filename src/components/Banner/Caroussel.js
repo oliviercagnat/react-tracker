@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core';
 import axios from 'axios';
-import { CurrencyState } from '../../context/Context';
+import { GlobalState } from '../../context/Context';
 import { TrendingCoins } from '../../config/api';
 import AliceCarousel from 'react-alice-carousel';
 import { Link } from 'react-router-dom';
@@ -12,7 +12,7 @@ export function numberWithCommas(x) {
 }
 
 const Caroussel = () => {
-  const { currency, symbol } = CurrencyState();
+  const { currency, symbol } = GlobalState();
   const [trending, setTrending] = useState([]);
 
   // We use axios to help us fetching the API data from CoinGecko

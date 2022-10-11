@@ -1,7 +1,7 @@
 import { AppBar, Container, createTheme, makeStyles, MenuItem, Select, ThemeProvider, Toolbar, Typography } from '@material-ui/core';
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import { CurrencyState } from '../context/Context';
+import { GlobalState } from '../context/Context';
 
 const useStyles = makeStyles(() => ({
   title: {
@@ -31,7 +31,7 @@ const Header = () => {
   // that stores all the entries the user has visited.
   const history = useHistory();
 
-  const { currency, setCurrency } = CurrencyState();
+  const { currency, setCurrency } = GlobalState();
 
   return (
     <ThemeProvider theme={darkTheme}>

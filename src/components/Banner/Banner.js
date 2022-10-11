@@ -1,28 +1,32 @@
-import { Container, makeStyles, Typography } from '@material-ui/core';
+import { Button, ButtonGroup, Container, makeStyles, Typography } from '@material-ui/core';
 import React from 'react';
+import SelectButton from '../SelectButton';
 import Caroussel from './Caroussel';
-
-const useStyles = makeStyles(() => ({
-  banner: {
-    backgroundImage: 'url(./images/banner2.jpg)',
-  },
-  bannerContent: {
-    height: 500,
-    display: 'flex',
-    flexDirection: 'column',
-    paddingTop: 25,
-    justifyContent: 'space-around',
-  },
-  tagline: {
-    display: 'flex',
-    height: '40%',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    textAlign: 'center',
-  },
-}));
+import { GlobalState } from '../../context/Context';
 
 const Banner = () => {
+  const { market, setMarket } = GlobalState();
+
+  const useStyles = makeStyles(() => ({
+    banner: {
+      backgroundImage: 'url(./images/banner2.jpg)',
+    },
+    bannerContent: {
+      height: 600,
+      display: 'flex',
+      flexDirection: 'column',
+      paddingTop: 25,
+      justifyContent: 'space-around',
+    },
+    tagline: {
+      display: 'flex',
+      height: '40%',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      textAlign: 'center',
+    },
+  }));
+
   const MUIclasses = useStyles();
 
   return (
@@ -46,8 +50,24 @@ const Banner = () => {
               fontFamily: 'Montserrat',
             }}
           >
-            Track your favourite cryptos with React
+            Track your favourite cryptos and shares with React
           </Typography>
+          <div
+            style={{
+              display: 'flex',
+              marginTop: 20,
+              justifyContent: 'space-around',
+              width: '100%',
+            }}
+          >
+            <SelectButton onClick={() => setMarket('crypto')} selected={market === 'crypto'}>
+              Crypto
+            </SelectButton>
+            <SelectButton onClick={() => setMarket('share')} selected={market === 'share'}>
+              Shares
+            </SelectButton>
+          </div>
+
           <Caroussel />
         </div>
       </Container>

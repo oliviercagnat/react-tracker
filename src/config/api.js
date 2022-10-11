@@ -13,3 +13,5 @@ export const TrendingCoins = (currency) =>
 // NASDAQ
 const FINANCIAL_MODEL_API_KEY = process.env.REACT_APP_FINANCIAL_MODEL_API_KEY;
 export const NasdaqList = () => `https://financialmodelingprep.com/api/v3/nasdaq_constituent?apikey=${FINANCIAL_MODEL_API_KEY}`;
+
+export const CompanyInfo = (id) => `https://financialmodelingprep.com/api/v3/profile/${id}?apikey=${FINANCIAL_MODEL_API_KEY}`;
