@@ -12,7 +12,7 @@ export function numberWithCommas(x) {
 }
 
 const Caroussel = () => {
-  const { currency, symbol } = GlobalState();
+  const { currency, symbol, topNasdaqCompanies, market } = GlobalState();
   const [trending, setTrending] = useState([]);
 
   // We use axios to help us fetching the API data from CoinGecko
@@ -61,13 +61,44 @@ const Caroussel = () => {
   };
 
   // Items are all the coins we display in the caroussel
-  const items = trending.map((coin) => {
+  const shareItems = topNasdaqCompanies.map((share) => {
+    // If the price_change_percentage is >= 0, there was profit
+    // We will use it to display red or green profit percentage
+    let profit = share?.changes >= 0;
+
+    return (
+      // Link to the coin page
+
+      <Link className={MUIclasses.carouselItem} to={`/shares/${share.symbol}`}>
+        <img src={share?.image} alt={share.name} height="80" style={{ marginBottom: 10 }} />
+        <span>
+          {share?.symbol}
+          &nbsp;
+          <span
+            style={{
+              color: profit > 0 ? 'rgb(14, 203, 129)' : 'red',
+              fontWeight: 500,
+            }}
+          >
+            {profit && '+'}
+            {share?.changes?.toFixed(2)}%
+          </span>
+        </span>
+        <span style={{ fontSize: 22, fontWeight: 500 }}>
+          {/* We put a comma in the current price every 3 digits and only displays the last 2 digits (rounded) */}$ {numberWithCommas(share?.price.toFixed(2))}
+        </span>
+      </Link>
+    );
+  });
+
+  const cryptoItems = trending.map((coin) => {
     // If the price_change_percentage is >= 0, there was profit
     // We will use it to display red or green profit percentage
     let profit = coin?.price_change_percentage_24h >= 0;
 
     return (
       // Link to the coin page
+
       <Link className={MUIclasses.carouselItem} to={`/coins/${coin.id}`}>
         <img src={coin?.image} alt={coin.name} height="80" style={{ marginBottom: 10 }} />
         <span>
@@ -101,7 +132,7 @@ const Caroussel = () => {
         disableDotsControls
         disableButtonsControls
         responsive={responsive}
-        items={items}
+        items={market === 'crypto' ? cryptoItems : shareItems}
         autoPlay
       />
     </div>

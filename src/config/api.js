@@ -1,5 +1,4 @@
 // CRYPTO
-
 export const CoinList = (currency) =>
   `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency}&order=market_cap_desc&per_page=100&page=1&sparkline=false`;
 
@@ -18,3 +17,5 @@ export const CompanyInfo = (id) => `https://financialmodelingprep.com/api/v3/pro
 
 export const CompanyHistoricalData = (id, days = 30) =>
   `https://financialmodelingprep.com/api/v3/historical-price-full/${id}?timeseries=${days}&apikey=${FINANCIAL_MODEL_API_KEY}`;
+
+export const TopNasdaqList = () => `https://financialmodelingprep.com/api/v3/profile/AAPL, MSFT,AMZN,TSLA,GOOG,META?apikey=${FINANCIAL_MODEL_API_KEY}`;

@@ -32,15 +32,6 @@ const Header = () => {
 
   const { currency, setCurrency, market } = GlobalState();
 
-  const showSelectCurrency = () => {
-    return (
-      <Select variant="outlined" style={{ width: 100, height: 40, marginRight: 15 }} value={currency} onChange={(e) => setCurrency(e.target.value)}>
-        <MenuItem value={'USD'}>USD</MenuItem>
-        <MenuItem value={'EUR'}>EUR</MenuItem>
-      </Select>
-    );
-  };
-
   return (
     <ThemeProvider theme={darkTheme}>
       <AppBar color="transparent" position="static">
@@ -50,7 +41,12 @@ const Header = () => {
             <Typography className={MUIclasses.title} onClick={() => history.push('/')} variant="h5">
               React Tracker
             </Typography>
-            {market === 'crypto' && showSelectCurrency()}
+            {market === 'crypto' && (
+              <Select variant="outlined" style={{ width: 100, height: 40, marginRight: 15 }} value={currency} onChange={(e) => setCurrency(e.target.value)}>
+                <MenuItem value={'USD'}>USD</MenuItem>
+                <MenuItem value={'EUR'}>EUR</MenuItem>
+              </Select>
+            )}
           </Toolbar>
         </Container>
       </AppBar>
