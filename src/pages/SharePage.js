@@ -98,7 +98,7 @@ const SharePage = () => {
           {share?.companyName}
         </Typography>
         <Typography variant="subtitle1" className={MUIclasses.description}>
-          {ReactHtmlParser(share?.description.split('. ').splice(0, 7).join('. '))}.
+          {ReactHtmlParser(share?.description.split('. ').splice(0, 6).join('. '))}.
         </Typography>
         <div className={MUIclasses.marketData}>
           <span style={{ display: 'flex' }}>
