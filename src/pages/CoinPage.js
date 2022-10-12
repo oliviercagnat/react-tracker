@@ -90,7 +90,7 @@ const CoinPage = () => {
           {coin?.name}
         </Typography>
         <Typography variant="subtitle1" className={MUIclasses.description}>
-          {ReactHtmlParser(coin?.description.en.split('. ').splice(0, 6).join('. '))}.
+          {ReactHtmlParser(coin?.description.en.split('. ').splice(0, 5).join('. '))}.
         </Typography>
         <div className={MUIclasses.marketData}>
           <span style={{ display: 'flex' }}>
