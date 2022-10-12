@@ -3,17 +3,16 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { GlobalState } from '../context/Context';
 
-const useStyles = makeStyles(() => ({
-  title: {
-    flex: 1,
-    color: 'gold',
-    fontFamily: 'Montserrat',
-    fontWeight: 'bold',
-    cursor: 'pointer',
-  },
-}));
-
 const Header = () => {
+  const useStyles = makeStyles(() => ({
+    title: {
+      flex: 1,
+      color: 'gold',
+      fontFamily: 'Montserrat',
+      fontWeight: 'bold',
+      cursor: 'pointer',
+    },
+  }));
   const MUIclasses = useStyles();
 
   const darkTheme = createTheme({
@@ -31,7 +30,16 @@ const Header = () => {
   // that stores all the entries the user has visited.
   const history = useHistory();
 
-  const { currency, setCurrency } = GlobalState();
+  const { currency, setCurrency, market } = GlobalState();
+
+  const showSelectCurrency = () => {
+    return (
+      <Select variant="outlined" style={{ width: 100, height: 40, marginRight: 15 }} value={currency} onChange={(e) => setCurrency(e.target.value)}>
+        <MenuItem value={'USD'}>USD</MenuItem>
+        <MenuItem value={'EUR'}>EUR</MenuItem>
+      </Select>
+    );
+  };
 
   return (
     <ThemeProvider theme={darkTheme}>
@@ -42,10 +50,7 @@ const Header = () => {
             <Typography className={MUIclasses.title} onClick={() => history.push('/')} variant="h5">
               React Tracker
             </Typography>
-            <Select variant="outlined" style={{ width: 100, height: 40, marginRight: 15 }} value={currency} onChange={(e) => setCurrency(e.target.value)}>
-              <MenuItem value={'USD'}>USD</MenuItem>
-              <MenuItem value={'EUR'}>EUR</MenuItem>
-            </Select>
+            {market === 'crypto' && showSelectCurrency()}
           </Toolbar>
         </Container>
       </AppBar>
