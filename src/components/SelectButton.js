@@ -2,7 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core';
 
 const SelectButton = ({ children, selected, onClick }) => {
-  const useStyles = makeStyles({
+  const useStyles = makeStyles((theme) => ({
     selectbutton: {
       border: '1px solid gold',
       borderRadius: 5,
@@ -18,10 +18,15 @@ const SelectButton = ({ children, selected, onClick }) => {
         backgroundColor: 'gold',
         color: 'black',
       },
-      width: '22%',
-      margin: 5,
+      width: '23%',
+      marginLeft: 'auto',
+      marginRight: 'auto',
+      [theme.breakpoints.down('sm')]: {
+        width: '28%',
+        margin: 0,
+      },
     },
-  });
+  }));
 
   const MUIclasses = useStyles();
 

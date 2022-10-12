@@ -91,6 +91,7 @@ const ShareTable = () => {
           style={{ padding: 20, width: '100%', display: 'flex', justifyContent: 'center' }}
           classes={{ ul: MUIclasses.pagination }}
           count={(handleSearch()?.length / 10).toFixed(0)}
+          siblingCount={0}
           onChange={(_, value) => {
             setPage(value);
             window.scroll(0, 450);
