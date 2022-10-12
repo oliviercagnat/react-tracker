@@ -5,6 +5,7 @@ import { CompanyInfo } from '../config/api';
 import { LinearProgress, makeStyles, Typography } from '@material-ui/core';
 import ReactHtmlParser from 'react-html-parser';
 import { numberWithCommas } from '../components/Banner/Caroussel';
+import ShareInfo from '../components/Share/ShareInfo';
 
 const SharePage = () => {
   const { id } = useParams();
@@ -18,6 +19,7 @@ const SharePage = () => {
 
   useEffect(() => {
     fetchShare();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const useStyles = makeStyles((theme) => ({
@@ -124,11 +126,12 @@ const SharePage = () => {
             </Typography>
             &nbsp; &nbsp;
             <Typography variant="h5" className={MUIclasses.heading}>
-              $ {numberWithCommas(share?.mktCap)}M
+              $ {numberWithCommas(share?.mktCap.toString().slice(0, -6))}M
             </Typography>
           </span>
         </div>
       </div>
+      <ShareInfo share={share} />
     </div>
   );
 };

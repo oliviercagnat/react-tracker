@@ -16,3 +16,22 @@ export const chartDays = [
     value: 365,
   },
 ];
+
+export const stockChartDays = [
+  {
+    label: '30 Days',
+    value: 30,
+  },
+  {
+    label: '3 Months',
+    value: 90,
+  },
+  {
+    label: '6 Months',
+    value: 125,
+  },
+  {
+    label: '1 Year',
+    value: 252,
+  },
+];

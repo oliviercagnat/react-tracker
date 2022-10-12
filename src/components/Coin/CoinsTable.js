@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { CoinList } from '../config/api';
-import { GlobalState } from '../context/Context';
+import { CoinList } from '../../config/api';
+import { GlobalState } from '../../context/Context';
 import {
   Container,
   createTheme,
@@ -18,10 +18,8 @@ import {
 } from '@material-ui/core';
 import { useHistory } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
-import { numberWithCommas } from './Banner/Caroussel';
+import { numberWithCommas } from '../Banner/Caroussel';
 import { Pagination } from '@material-ui/lab';
-
-// import { NasdaqList } from '../config/api';
 
 const CoinsTable = () => {
   const [coins, setCoins] = useState([]);
@@ -73,7 +71,7 @@ const CoinsTable = () => {
   const MUIclasses = useStyles();
 
   const handleSearch = () => {
-    return coins.filter((coin) => coin.name.toLowerCase().includes(search) || coin.symbol.toLowerCase().includes(search));
+    return coins.filter((coin) => coin.name.toLowerCase().includes(search.toLowerCase()) || coin.symbol.toLowerCase().includes(search.toLowerCase()));
   };
 
   return (

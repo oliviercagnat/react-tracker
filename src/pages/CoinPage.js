@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { SingleCoin } from '../config/api';
 import { GlobalState } from '../context/Context';
-import CoinInfo from '../components/CoinInfo';
+import CoinInfo from '../components/Coin/CoinInfo';
 import ReactHtmlParser from 'react-html-parser';
 import { numberWithCommas } from '../components/Banner/Caroussel';
 

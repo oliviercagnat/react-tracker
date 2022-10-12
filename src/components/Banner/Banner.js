@@ -1,4 +1,4 @@
-import { Button, ButtonGroup, Container, makeStyles, Typography } from '@material-ui/core';
+import { Container, makeStyles, Typography } from '@material-ui/core';
 import React from 'react';
 import SelectButton from '../SelectButton';
 import Caroussel from './Caroussel';

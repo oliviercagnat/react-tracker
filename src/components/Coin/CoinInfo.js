@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { HistoricalChart } from '../config/api';
-import { GlobalState } from '../context/Context';
+import { HistoricalChart } from '../../config/api';
+import { GlobalState } from '../../context/Context';
 import axios from 'axios';
 import { CircularProgress, createTheme, makeStyles, ThemeProvider } from '@material-ui/core';
 import { Line } from 'react-chartjs-2';
-import { chartDays } from '../config/data';
-import SelectButton from './SelectButton';
+import { chartDays } from '../../config/data';
+import SelectButton from '../SelectButton';
 
 const CoinInfo = ({ coin }) => {
   const [historicalData, setHistoricalData] = useState();
@@ -74,7 +74,7 @@ const CoinInfo = ({ coin }) => {
                 ],
               }}
               options={{
-                //   responsive: true,
+                responsive: true,
                 elements: {
                   point: {
                     radius: 1,
