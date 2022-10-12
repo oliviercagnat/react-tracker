@@ -66,7 +66,7 @@ const ShareInfo = ({ share }) => {
                 datasets: [
                   {
                     data: historicalData.map((share) => share.adjClose),
-                    label: `Price ( Past ${days} Days ) in $`,
+                    label: `Price ( Past ${days} Market Days ) in $`,
                     borderColor: '#EEBC1D',
                   },
                 ],
